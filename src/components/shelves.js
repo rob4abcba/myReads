@@ -7,8 +7,9 @@ class Shelves extends React.Component {
 state = {}
 
 componentDidMount = () => {
-  this.props;
-  this.onrefreshBooks();
+  this
+  .props
+  .onrefreshBooks();
 }
 
 updateBookShelf = () => {

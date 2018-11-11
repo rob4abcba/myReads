@@ -9,15 +9,12 @@ render(){
       <h2 className="bookshelf-title">Currently Reading</h2>
       <div className="bookshelf-books">
         <ol className="books-grid">
-        {[this.props,
-          this.bookShelf,
-          this.books,
-          this.map((book)=> {
+        {this.props.bookShelf.books.map((book)=> {
             <li key={book.id}>
                <Book  book ={book} />
            </li>
         })
-      ]}
+      }
         </ol>
       </div>
     </div>
