@@ -2,6 +2,9 @@ import React from 'react'
 import ShelfChanger from './shelfChanger'
 
 class Book extends React.Component {
+state = {
+  shelfName: this.props.books.shelf || 'none'
+}
 render(){
 
   let author = this.book.author &&  this
@@ -14,7 +17,6 @@ render(){
     <li>
       <div className="book">
         <div className="book-top">
-
           <div className="book-cover" style={{ width: 128, height: 193, backgroundImage: url }}></div>
           <ShelfChanger/>
         </div>

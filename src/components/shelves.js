@@ -20,7 +20,7 @@ updateBookShelf = () => {
     this
     .props
     .books
-    .filter(book => book.shelf ==='currentlyReading')
+    .filter(book => book.shelf === 'currentlyReading')
   };
 
   let wantRead = {
@@ -29,7 +29,7 @@ updateBookShelf = () => {
     this
     .props
     .books
-    .filter(book => book.shelf ==='wantToRead')
+    .filter(book => book.shelf === 'wantToRead')
   };
 
   let read = {
@@ -38,7 +38,7 @@ updateBookShelf = () => {
     this
     .props
     .books
-    .filter(book => book.shelf ==='Read')
+    .filter(book => book.shelf === 'Read')
   };
   return( [newReading, wantRead, read]);
 }
@@ -58,9 +58,9 @@ render(){
   <div className="list-books-content">
   {/*Shelf*/}
     <div>
-    { bookShelves && bookShelves.map((shelf) => (<BookShelf
-       key = {shelf.name}
-       shelf = {shelf}
+    { bookShelves && bookShelves.map((bookShelf) => (<BookShelf
+       key = {bookShelf.name}
+       shelf = {bookShelf}
       /> ))}
 
     </div>

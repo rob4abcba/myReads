@@ -2,6 +2,8 @@ import React from 'react'
 import Book from './book'
 
 class BookShelf extends React.Component {
+state ={}
+
 render(){
   return(
    <div>
@@ -9,11 +11,15 @@ render(){
       <h2 className="bookshelf-title">Currently Reading</h2>
       <div className="bookshelf-books">
         <ol className="books-grid">
-        {this.props.bookShelf.books.map((book)=> {
+        {this
+          .props
+          .shelf
+          .books
+          .map(book => (
             <li key={book.id}>
-               <Book  book ={book} />
-           </li>
-        })
+           <Book  book ={book} />
+          </li>
+       ))
       }
         </ol>
       </div>
