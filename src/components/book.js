@@ -2,12 +2,13 @@ import React from 'react'
 import ShelfChanger from './shelfChanger'
 
 class Book extends React.Component {
+
 state = {
-  shelfName: this.props.books.shelf || 'none'
+  shelfName: this.props.book.shelf || 'none'
 }
 render(){
-
-  let author = this.book.author &&  this
+ console.log(this);
+  const author = this.props.book.authors &&  this
   .props
   .book
   .authors

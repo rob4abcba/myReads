@@ -38,9 +38,10 @@ updateBookShelf = () => {
     this
     .props
     .books
-    .filter(book => book.shelf === 'Read')
+    .filter(book => book.shelf === 'read')
   };
   return( [newReading, wantRead, read]);
+
 }
 
 
@@ -49,11 +50,13 @@ render(){
   let bookShelves = [];
   if ( this.props.books && this.props.books.length) {
     bookShelves = this.updateBookShelf();
+    console.log(bookShelves);
   }
 
   return(
+
 <div>
-  <header/>
+  <Header/>
   {/*shelves*/}
   <div className="list-books-content">
   {/*Shelf*/}

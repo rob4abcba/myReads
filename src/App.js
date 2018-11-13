@@ -31,7 +31,8 @@ refreshBooks = () => {
 }
 
   render() {
-
+  //check books
+  console.log(this.state.books)
     return (
       <div className="app">
         {this.state.showSearchPage ? (
