@@ -40,11 +40,11 @@ moveBook =(book,shelf) => {
 
      let books  = updatedBookList.filter( bookList => bookList.id === book.id);
      if (books.length) {
-       books[0].shelf = shelf
+       books[0].shelf = shelf;
      } else {
        updatedBookList.push(book);
      }
-     this.setState(books: updatedBookList);
+     this.setState({books: updatedBookList});
   })
 }
 
@@ -58,7 +58,7 @@ moveBook =(book,shelf) => {
         ) : (
 
           <div className="list-books">
-        <Shelves  books = {this.state.books} onrefreshBooks = {this.refreshBooks} onmoveBook ={this.moveBook}/>)
+        <Shelves  books = {this.state.books} onrefreshBooks = {this.refreshBooks} onmoveBook = {this.moveBook}/>)
             <SearchButton/>
           </div>
         )}
