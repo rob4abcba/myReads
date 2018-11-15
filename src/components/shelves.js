@@ -64,6 +64,7 @@ render(){
     { bookShelves && bookShelves.map((bookShelf) => (<BookShelf
        key = {bookShelf.name}
        shelf = {bookShelf}
+       onmoveBook = {this.props.onmoveBook}
       /> ))}
 
     </div>

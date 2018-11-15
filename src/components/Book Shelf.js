@@ -17,7 +17,7 @@ render(){
         <ol className="books-grid">
         { books && books.map(book => (
             <li key={book.id}>
-           <Book  book ={book} />
+           <Book  book ={book} onmoveBook ={this.props.onmoveBook} />
           </li>
        ))
       }

@@ -19,6 +19,7 @@ componentDidMount = () => {
     this.refreshBooks();
   }
 }
+
 refreshBooks = () => {
   BooksAPI
   .getAll()
@@ -28,6 +29,23 @@ refreshBooks = () => {
     bookNew: false
   });
 });
+}
+
+moveBook =(book,shelf) => {
+  BooksAPI
+   .update(book, shelf)
+   .then( update => {
+     let updatedBookList =
+     this.state.books.splice(0);
+
+     let books  = updatedBookList.filter( bookList => bookList.id === book.id);
+     if (books.length) {
+       books[0].shelf = shelf
+     } else {
+       updatedBookList.push(book);
+     }
+     this.setState(books: updatedBookList);
+  })
 }
 
   render() {
@@ -40,7 +58,7 @@ refreshBooks = () => {
         ) : (
 
           <div className="list-books">
-        <Shelves  books = {this.state.books} onrefreshBooks = {this.refreshBooks}/>)
+        <Shelves  books = {this.state.books} onrefreshBooks = {this.refreshBooks} onmoveBook ={this.moveBook}/>)
             <SearchButton/>
           </div>
         )}
