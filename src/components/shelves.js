@@ -1,6 +1,7 @@
 import React from 'react'
 import BookShelf from './Book Shelf'
 import Header from './header'
+import SearchButton from './searchButton'
 
 
 class Shelves extends React.Component {
@@ -58,6 +59,7 @@ render(){
 <div>
   <Header/>
   {/*shelves*/}
+  <div className="list-books">
   <div className="list-books-content">
   {/*Shelf*/}
     <div>
@@ -68,6 +70,8 @@ render(){
       /> ))}
 
     </div>
+    <SearchButton/>
+  </div>
   </div>
   </div>)
 }

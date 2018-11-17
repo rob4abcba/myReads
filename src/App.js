@@ -53,17 +53,11 @@ moveBook =(book,shelf) => {
   console.log(this.state.books)
     return (
       <div className="app">
-        {this.state.showSearchPage ? (
-          <Search/>
-        ) : (
+      <Route exact path = '/search' render = {( () => (  <Search books = {this.state.books} onmoveBook = {this.moveBook} />)) }
 
-          <div className="list-books">
-        <Shelves  books = {this.state.books} onrefreshBooks = {this.refreshBooks} onmoveBook = {this.moveBook}/>)
-            <SearchButton/>
-          </div>
-        )}
+   <Route exact path = '/' render = { (() = > (
+    <Shelves  books = {this.state.books} onrefreshBooks = {this.refreshBooks} onmoveBook = {this.moveBook}/> ))} /> 
       </div>
-
     )
   }
 }
