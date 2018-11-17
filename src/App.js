@@ -8,6 +8,7 @@ import Search from './components/search'
 import Header from './components/header'
 import SearchButton from './components/searchButton'
 
+
 class BooksApp extends React.Component {
   state = {
 
@@ -53,11 +54,12 @@ moveBook =(book,shelf) => {
   console.log(this.state.books)
     return (
       <div className="app">
-      <Route exact path = '/search' render = {( () => (  <Search books = {this.state.books} onmoveBook = {this.moveBook} />)) }
+      <Route exact path = '/' render = { ( () => (  <Shelves  books = {this.state.books} onrefreshBooks = {this.refreshBooks} onmoveBook = {this.moveBook}/> ))} />
 
-   <Route exact path = '/' render = { (() = > (
-    <Shelves  books = {this.state.books} onrefreshBooks = {this.refreshBooks} onmoveBook = {this.moveBook}/> ))} /> 
-      </div>
+       <Route exact path = '/search' render = {( () => (  <Search books = {this.state.books} onmoveBook = {this.moveBook} />)) } />
+
+       <SearchButton/>
+  </div>
     )
   }
 }
