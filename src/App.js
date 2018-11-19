@@ -12,7 +12,6 @@ import SearchButton from './components/searchButton'
 class BooksApp extends React.Component {
   state = {
 
-    showSearchPage: false
   }
 
 componentDidMount = () => {
@@ -49,6 +48,16 @@ moveBook =(book,shelf) => {
   })
 }
 
+mergeSearchShelf = (shelf, search) => {
+let library = [];
+for (let i = 0 ; i < shelf.length; i++){
+  book => library[book.id] = book.shelf;
+}
+for ( let i = 0 ; i < search.length; i++){
+  book => {book.shelf = library[book.id] || 'none'}
+}
+return search;
+}
   render() {
   //check books
   console.log(this.state.books)
@@ -56,7 +65,7 @@ moveBook =(book,shelf) => {
       <div className="app">
       <Route exact path = '/' render = { ( () => (  <Shelves  books = {this.state.books} onrefreshBooks = {this.refreshBooks} onmoveBook = {this.moveBook}/> ))} />
 
-       <Route exact path = '/search' render = {( () => (  <Search books = {this.state.books} onmoveBook = {this.moveBook} />)) } />
+       <Route exact path = '/search' render = {( () => (  <Search shelvedBooks = {this.state.books} onmoveBook = {this.moveBook} onmergeSearchShelf = {this.mergeSearchShelf}/>)) } />
 
        <SearchButton/>
   </div>
