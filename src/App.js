@@ -50,12 +50,10 @@ moveBook =(book,shelf) => {
 
 mergeSearchShelf = (shelf, search) => {
 let library = [];
-for (let i = 0 ; i < shelf.length; i++){
-  book => library[book.id] = book.shelf;
-}
-for ( let i = 0 ; i < search.length; i++){
-  book => {book.shelf = library[book.id] || 'none'}
-}
+shelf.forEach(book => library[book.id] = book.shelf)
+
+search.forEach(book => {book.shelf = library[book.id] || 'none'})
+
 return search;
 }
   render() {
