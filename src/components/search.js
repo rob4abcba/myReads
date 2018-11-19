@@ -2,6 +2,7 @@ import React from 'react'
 import * as BooksAPI from '../BooksAPI'
 import {Link} from 'react-router-dom'
 import Book from './book'
+
 class Search extends React.Component {
 state = {
   search:'',
@@ -52,7 +53,7 @@ render(){
       <div className="search-books-bar">
         <Link to='/' className="close-search" >Close</Link>
         <div className="search-books-input-wrapper">
-          <input type="text" placeholder="Search by title or author"  onsearch= {(e) => this.search(e.target.value)} value = {this.state.search.value} />
+          <input type="text" placeholder="Search by title or author"  onChange= {(event) => this.search(event.target.value)} value = {this.state.search.value} />
         </div>
       </div>
       <div className="search-books-results">
